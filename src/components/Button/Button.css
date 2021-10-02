@@ -1,0 +1,27 @@
+.nav-pills .nav-link.active {
+	color: white !important;
+	background-color: #ff0000 !important;
+}
+.signed-links {
+	display: flex !important;
+	flex-direction: row !important;
+}
+
+.RegisterWrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.Form {
+	padding: 40px;
+	margin-top: 2em;
+	width: 40%;
+	min-width: 300px;
+	max-width: 400px;
+	max-height: 700px;
+	background-color: rgba(241, 241, 241, 1);
+	border-radius: 5px;
+	box-shadow: 0 4px 12px rgb(0 0 0 / 8%), 0 0 1px rgb(1 0 0 / 10%);
+}
