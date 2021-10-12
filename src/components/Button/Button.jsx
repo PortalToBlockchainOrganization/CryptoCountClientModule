@@ -5,9 +5,7 @@ import { useQuery } from 'react-query'
 import classes from "./Button.css";
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { jsPDF } from 'jspdf';
-
-
-
+import SpecialButton from 'react-bootstrap/Button';
 
 
 const queryClient = new QueryClient()
@@ -86,14 +84,6 @@ const Fetcher = ({realizingValue, setRealizingValue, ...props}) => {
 		  
 	}
 	
-
-	//let isSubmitted = quantityRealizing > 0 
-	//const {status2, data2, error2, isLoading} = useQuery(['realize', quantityRealizing], query2, {enabled: isSubmitted});
-
-
-
-	
-	
 	return(
 		<div className={classes.RegisterWrapper}>
 		{status === 'loading' ? (
@@ -101,8 +91,7 @@ const Fetcher = ({realizingValue, setRealizingValue, ...props}) => {
 		) : status === 'error' ? (
 			error.message
 		) : (
-
-							<form onSubmit={handleSubmit} className={classes.Form}>
+					<form onSubmit={handleSubmit} className={classes.Form}>
 								<input
 									id="actionForm"
 									name="quantityRealizing"
@@ -110,16 +99,17 @@ const Fetcher = ({realizingValue, setRealizingValue, ...props}) => {
 									//defaultValue={quantityRealizing}
 									ref={quantityRealize}
 									placeholder='XTZ Rewards' />
-								<button
+								<SpecialButton 
 									onClick={handleMax}
 								>
 									Fill With Max
-								</button>
-								<button type="submit">
+								</SpecialButton>
+								<SpecialButton type="submit" style={{ marginLeft: "10px" }}>
 
 									Generate Statement
-								</button>
+								</SpecialButton>
 							</form>
+						
 						)}
 					</div>
 	)
