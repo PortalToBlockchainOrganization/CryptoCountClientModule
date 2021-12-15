@@ -7,7 +7,6 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { jsPDF } from 'jspdf';
 import SpecialButton from 'react-bootstrap/Button';
 
-
 const queryClient = new QueryClient()
 
 export default function Button() {
@@ -29,6 +28,7 @@ const Fetcher = ({realizingValue, setRealizingValue, ...props}) => {
 	//var quantityRealizing = 0
 
 	const quantityRealize = React.createRef();
+	const basisPrice = React.createRef()
 	const { status, data, error } = useQuery('todos', async () => {
 		const { data } = await axios.get(`http://api.portaltoblockchain.org/Analysis/Tezos/Auto?address=${address}&fiat=${fiat}`)
 		return (data)
@@ -42,6 +42,16 @@ const Fetcher = ({realizingValue, setRealizingValue, ...props}) => {
 		quantityRealize.current.value =
 		data.unrealizedRewardAgg.toFixed(0);
 	};
+
+	const putOn =(e)=>{
+		e.preventDefault()
+		basisPrice.current.value = data.basisPrice.toFixed(3);
+	} 
+
+	// const basisPrice = (e)=>{
+	// 	Calc. Avg Basis Price:
+	// 	basisPrice.current.value =  data.basisPrice
+	// }
 
 	const numberWithCommas = (x) => {
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -108,6 +118,7 @@ const Fetcher = ({realizingValue, setRealizingValue, ...props}) => {
 									type="text"
 									//defaultValue={quantityRealizing}
 									ref={quantityRealize}
+									style={{width: "150px"}}
 									placeholder='XTZ Rewards' />
 								<SpecialButton 
 									onClick={handleMax}
@@ -118,6 +129,25 @@ const Fetcher = ({realizingValue, setRealizingValue, ...props}) => {
 
 									Generate Statement
 								</SpecialButton>
+								<br></br>
+								<input
+									id="actionForm2"
+									style={{width: "200px"}}
+									name="basisP"
+									type="text"
+									//defaultValue={quantityRealizing}
+									ref={basisPrice}
+									placeholder='Click For Basis Price' />
+								<SpecialButton type="submit" style={{ marginLeft: "10px" }}
+								onClick = {putOn}>
+									Basis Price
+						
+								</SpecialButton>
+								{/* <div 
+	
+								>
+											Calc. Avg Basis Price: {basisPrice}
+								</div> */}
 							</form>
 						
 						)}
