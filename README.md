@@ -11,6 +11,8 @@
 
 ## To Run This Machine
 
+### git clone
+
 ### npm install axios
 ### npm install jspdf
 
