@@ -7,7 +7,7 @@
 3) If you plan to use the React-Query example below, replace the query parameters with your user's data.
 4) Display your users data from global state.
 
-## Example With React-Query and PDF Statement Download - File Location - src/components/Client
+## Example With React-Query and PDF Statement Download - File Location - src/components/Button
 
 ### npm install axios
 ### npm install jspdf
