@@ -9,7 +9,11 @@
 
 ## Example With React-Query and PDF Statement Download - File Location - src/components/Button
 
+## To Run This Machine
+
 ### npm install axios
 ### npm install jspdf
+
+### npm react-start
 
 
